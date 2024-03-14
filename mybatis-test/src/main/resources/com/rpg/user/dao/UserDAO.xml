@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rpg.user.dao.UserDAO">
+
+    <resultMap id="userResultMap" type="com.rpg.user.dto.UserDTO">
+        <id property="code" column="USER_CODE"/>
+        <result property="name" column="USER_NAME"/>
+        <result property="charm" column="USER_CHARM"/>
+        <result property="bagCode" column="USER_BAG"/>
+        <result property="equippedItemCode" column="USER_EQUIPPED"/>
+        <result property="money" column="USER_MONEY"/>
+    </resultMap>
+
+    <!--  내 상태 확인하기  -->
+    <select id="getUserInfo" resultMap="userResultMap">
+        SELECT
+        *
+        FROM
+        TBL_USER
+        WHERE
+        USER_CODE = #{ code }
+    </select>
+
+    <!--  유저 이름 변경  -->
+    <update id="updateUserName">
+        UPDATE TBL_USER
+        SET USER_NAME = #{ name }
+        WHERE
+        USER_CODE = #{ code }
+    </update>
+
+    <update id="updateUserCharm">
+        UPDATE TBL_USER
+        SET USER_CHARM = #{ charm }
+        WHERE
+        USER_CODE = #{ code }
+    </update>
+    
+    <update id="updateUserMoney">
+        UPDATE TBL_USER
+        SET USER_MONEY = #{ money }
+        WHERE
+        USER_CODE = #{ code }
+    </update>
+
+
+</mapper>
