@@ -9,8 +9,6 @@ public class UserPrint {
 
     public void printUserInfo(UserDTO userInfo, UserItemDTO userEquippedItem, List<UserItemDTO> itemList) {
 
-
-
         System.out.println("■ ■ 내 상태 ■ ■ ");
         System.out.println("[이름] : " + userInfo.getName());
         System.out.println("[나의 매력도] : " + userInfo.getCharm());

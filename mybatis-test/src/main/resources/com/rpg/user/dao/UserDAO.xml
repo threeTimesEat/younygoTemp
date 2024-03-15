@@ -56,18 +56,18 @@
         USER_CODE = #{ code }
     </update>
 
-    <!--  유저 매력도 변경  -->
+    <!--  유저 매력도 변경(하락만)  -->
     <update id="updateUserCharm">
         UPDATE TBL_USER
-        SET USER_CHARM = #{ charm }
+        SET USER_CHARM = USER_CHARM - #{ charm }
         WHERE
         USER_CODE = #{ code }
     </update>
 
-    <!--  유저가 가진 돈 변경  -->
+    <!--  유저가 가진 돈 변경(상승만)  -->
     <update id="updateUserMoney">
         UPDATE TBL_USER
-        SET USER_MONEY = #{ money }
+        SET USER_MONEY = USER_MONEY + #{ money }
         WHERE
         USER_CODE = #{ code }
     </update>
